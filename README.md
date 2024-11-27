@@ -2,8 +2,8 @@
 Practica 1 de la asignatura 'Sistemas de control a tiempo real' de la Uvigo curso 24-25
 
 ## 🏆 Instalación de la libreria en un proyecto
-1. Creamos el proyecto en "stm32cubeide" y lo llamamos, por ejemplo, como `proyectoSTM32`
-2. Para añadir esta libreria al proyecto `proyectoSTM32` clonamos el repositorio en la carpeta "Middlewares" -> `proyectoSTM32/Middlewares/`
+1. Creamos el proyecto en "stm32cubeide" y lo llamamos, por ejemplo, como `Practica1_24-25`
+2. Para añadir esta libreria al proyecto `Practica1_24` clonamos el repositorio en la carpeta "Middlewares" -> `Practica1_24/Middlewares/`
 3. En la configuracion del proyecto haciendo click derecho en el nombre del proyecto `Properties/'C/C++ Build'/Settings/'MCU/MPU GCC Compiler'/'Include paths'` añadimos todas las carpetas de la libreria haciendo click en el icono señalado con la flecha roja
 
 ![image](https://github.com/user-attachments/assets/3d423f3b-959d-42b5-9787-a7b40991bb86)
