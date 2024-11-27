@@ -8,6 +8,14 @@ Practica 1 de la asignatura 'Sistemas de control a tiempo real' de la Uvigo curs
 
 ![image](https://github.com/user-attachments/assets/3d423f3b-959d-42b5-9787-a7b40991bb86)
 
+4. Añadimos las rutas de las diferentes carpetas y subcarpetas de `Practica1_24/Middlewares/STM32F429I-DISC1-LCD` haciendo click en `Workspace`⚠️ hacer este procedimiento repetidamente
+
+![image](https://github.com/user-attachments/assets/80266d75-9541-4e03-8599-7be901582192)
+
+![image](https://github.com/user-attachments/assets/e07ce8a7-5722-41e4-ae47-e26b5b7dfbea)
+
+
+
 ℹ️ OTRA FORMA: Para incluir los directorios en el `Include paths` tambien se puede copiar y pegar las siguientes lineas en el primer cuadro blanco
 
 ``` python
