@@ -4,15 +4,22 @@ Practica 1 de la asignatura 'Sistemas de control a tiempo real' de la Uvigo curs
 ## 🏆 Instalación de la libreria en un proyecto
 1. Creamos el proyecto en "stm32cubeide" y lo llamamos, por ejemplo, como `Practica1_24-25`
 2. Para añadir esta libreria al proyecto `Practica1_24` clonamos el repositorio en la carpeta "Middlewares" -> `Practica1_24/Middlewares/`
-3. En la configuracion del proyecto haciendo click derecho en el nombre del proyecto `Properties/'C/C++ Build'/Settings/'MCU/MPU GCC Compiler'/'Include paths'` añadimos todas las carpetas de la libreria haciendo click en el icono señalado con la flecha roja
+3. En la configuracion del proyecto haciendo click derecho en el nombre del proyecto `Properties`
+4. Navegamos hasta `Properties/'C/C++ Build'/Settings/'MCU/MPU GCC Compiler'/'Include paths'`
+5. Añadimos todas las carpetas de la libreria haciendo click en el icono ![image](https://github.com/user-attachments/assets/2d0c4e31-ee0d-43be-844a-34a703ad98d3)
+ señalado con la flecha roja
 
 ![image](https://github.com/user-attachments/assets/3d423f3b-959d-42b5-9787-a7b40991bb86)
 
-4. Añadimos las rutas de las diferentes carpetas y subcarpetas de `Practica1_24/Middlewares/STM32F429I-DISC1-LCD` haciendo click en `Workspace`⚠️ hacer este procedimiento repetidamente
+5. Hacemos click en `Workspace`
 
 ![image](https://github.com/user-attachments/assets/80266d75-9541-4e03-8599-7be901582192)
 
+6. Buscamos las carpetas y subcarpetas de `Practica1_24/Middlewares/STM32F429I-DISC1-LCD`
+
 ![image](https://github.com/user-attachments/assets/eff8b692-d4e4-4006-9d02-b524c9653987)
+
+⚠️ hacer este procedimiento repetidamente los pasos 5 y 6 hasta terminar de añadir todas las carpetas
 
 
 
