@@ -2,6 +2,10 @@
 Practica 1 de la asignatura 'Sistemas de control a tiempo real' de la Uvigo curso 24-25
 
 ## 🏆 Instalación de la libreria en un proyecto
+
+### Tenemos dos formas de importar las carpetas
+
+#### 🔵 Forma 1:
 1. Creamos el proyecto en "stm32cubeide" y lo llamamos, por ejemplo, como `Practica1_24-25`
 2. Para añadir esta libreria al proyecto `Practica1_24` clonamos el repositorio en la carpeta "Middlewares" -> `Practica1_24/Middlewares/`
 3. En la configuracion del proyecto haciendo click derecho en el nombre del proyecto `Properties`
@@ -9,22 +13,26 @@ Practica 1 de la asignatura 'Sistemas de control a tiempo real' de la Uvigo curs
 5. Añadimos todas las carpetas de la libreria haciendo click en el icono ![image](https://github.com/user-attachments/assets/2d0c4e31-ee0d-43be-844a-34a703ad98d3)
  señalado con la flecha roja
 
-![image](https://github.com/user-attachments/assets/3d423f3b-959d-42b5-9787-a7b40991bb86)
+![image](https://github.com/user-attachments/assets/7702750a-d4ab-49eb-8bdd-0ba61ec8b85a)
 
-5. Hacemos click en `Workspace`
+5. Hacemos click en `Workspace...`
 
 ![image](https://github.com/user-attachments/assets/80266d75-9541-4e03-8599-7be901582192)
 
 6. Buscamos las carpetas y subcarpetas de `Practica1_24/Middlewares/STM32F429I-DISC1-LCD`
 
-![image](https://github.com/user-attachments/assets/eff8b692-d4e4-4006-9d02-b524c9653987)
+![image](https://github.com/user-attachments/assets/4014c379-9969-4f9e-9ac7-7291261fe5f9)
 
-⚠️ hacer este procedimiento repetidamente los pasos 5 y 6 hasta terminar de añadir todas las carpetas
+‼️ No seleccionar las carpetas `.git`, `ENUNCIADO` y `Documentacion`
+⚠️ hacer repetidamente los pasos 5 y 6 hasta terminar de añadir todas las carpetas 
+
+Ejemplo video
 
 
+#### 🔵 Forma 2:
 
-
-ℹ️ OTRA FORMA: Para incluir los directorios en el `Include paths` tambien se puede copiar y pegar las siguientes lineas en el primer cuadro blanco
+1. hacemos los pasos 1, 2, 3 y 4 de la `forma1`
+2. Copiar y pegar las siguientes lineas en el primer cuadro blanco
 
 ``` python
 "${workspace_loc:/${ProjName}/Middlewares/STM32F429I-DISC1-LCD/interfazLCD/Colores}"
