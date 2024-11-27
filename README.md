@@ -12,7 +12,8 @@ Practica 1 de la asignatura 'Sistemas de control a tiempo real' de la Uvigo curs
 
 ![image](https://github.com/user-attachments/assets/80266d75-9541-4e03-8599-7be901582192)
 
-![image](https://github.com/user-attachments/assets/e07ce8a7-5722-41e4-ae47-e26b5b7dfbea)
+![image](https://github.com/user-attachments/assets/eff8b692-d4e4-4006-9d02-b524c9653987)
+
 
 
 
