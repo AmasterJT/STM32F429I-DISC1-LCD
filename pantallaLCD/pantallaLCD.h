@@ -224,6 +224,17 @@
 #define LCD_FRAME_BUFFER_LAYER_1 (LCD_FRAME_BUFFER+0x130000)
 
 
+/** Para definir la orientacion de la pantalla en vertical **/
+#define VERTICAL 0
+
+/** Para definir la orientacion de la pantalla en horizontal **/
+#define HORIZONTAL 1
+
+/** Para Definir la posicion normal de la pantalla **/
+#define NORMAL 0
+
+/** Para Definir la posicion invertida de la pantalla **/
+#define INVERTIDA 1
 
 /**
  * @brief Inicializa la pantalla y establece su orientación.
