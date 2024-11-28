@@ -1,22 +1,21 @@
 # 🚀 STM32F429I-DISC1-LCD
 
-Practica 1 de la asignatura 'Sistemas de control a tiempo real' de la Uvigo curso 24-25
+_Practica 1_ de la asignatura **'Sistemas de control a tiempo real'** de **Ingenería en electrónica industrial y automática** de la **Universidad de Vigo {Uvigo}** curso 24-25
 
 ## 📚 Enunciado de la práctica
 
-sctr.eii.uvigo 2024-2025 Práctica 7 7/8![ref1]
-
-**Sistemas de Control en Tiempo Real Práctica 1**
-
 En esta práctica elaboraremos código en lenguaje C para manejo de una pantalla táctil en una placa [STM32F429I-DISC1](https://www.st.com/en/evaluation-tools/32f429idiscovery.html)
 
-![](Gresources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.002.png)
+![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.002.png)
 
 ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.003.png)
 
 La placa [STM32F492I-DISC1](https://www.st.com/en/evaluation-tools/32f429idiscovery.html) dispone de:
 
-- un microcontrolador [STM32F429ZIT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f429zi.html) de 32 bits con ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.004.png)
+![microcontrolador](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.004.png)
+
+- Un microcontrolador [STM32F429ZIT6](https://www.st.com/en/microcontrollers-microprocessors/stm32f429zi.html) de 32 bits con:
+
   - núcleo [ARM Cortex-M4](https://developer.arm.com/ip-products/processors/cortex-m/cortex-m4) con unidad FPU de cálculo en punto flotante
   - reloj de hasta 180 MHz
   - 2 MiBytes de memoria Flash
@@ -31,6 +30,7 @@ La placa [STM32F492I-DISC1](https://www.st.com/en/evaluation-tools/32f429idiscov
   - controlador [USB 2.0](https://es.wikipedia.org/wiki/Universal_Serial_Bus) para actuar como host o cliente
   - controlador Ethernet 100 Mbit/s
   - interfaz paralela de 8 a 14 bits con cámara, hasta 54 Mbytes/s
+
 - una RAM externa de 8 MiBytes
 - otro microcontrolador de 32 bits para implantar un depurador hardware en tiempo real con interfaz ST- LINK con conexión USB para descarga y depuración de aplicaciones, puerto serie virtual y almacenamiento de sistema de archivos
 - pantalla LCD TFT táctil resistiva de 2.4" resolución QVGA de 240x320 puntos con controlador [ILI9341](https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf)
@@ -53,9 +53,9 @@ Paquete de herramientas [STM32CubeF4](https://www.st.com/en/embedded-software/st
 - Un conjunto de bibliotecas de funciones a más alto nivel para manejo de comunicaciones USB, TCP/IP, etc y para poder disponer de un RTOS (_Real-Time Operating System_).
 - Documentación: [STM32F4 HAL and low-layer drivers](https://www.st.com/resource/en/user_manual/dm00105879-description-of-stm32f4-hal-and-ll-drivers-stmicroelectronics.pdf)
 
-Creación de un nuevo proyecto en ST32CubeIDE: en menú _File - New - STM32 Project._
+Creación de un nuevo proyecto en ST32CubeIDE: en menú _`File - New - STM32 Project`_
 
-En la ventana _Target Selection_ hay que indicar para qué microcontrolador o placa se va a preparar la aplicación. En la pestaña _Board Selector_ indicaremos STM32F429I-DISC1 en la casilla _Commercial Part Number_ y seleccionaremos esta placa abajo a la derecha.
+En la ventana _`Target Selection`_ hay que indicar para qué microcontrolador o placa se va a preparar la aplicación. En la pestaña _`Board Selector`_ indicaremos **STM32F429I-DISC1** en la casilla _`Commercial Part Number`_ y seleccionaremos esta placa abajo a la derecha.
 
 ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.005.png)
 
@@ -67,9 +67,9 @@ Haciendo doble click sobre el archivo con extensión .ioc existente en el proyec
 
 ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.007.jpeg)
 
-Yendo en el panel de la izquierda por _Middleware - FREERTOS_, entramos en la configuración de este sistema operativo en tiempo real.
+Yendo en el panel de la izquierda por _`Middleware - FREERTOS`_, entramos en la configuración de este sistema operativo en tiempo real.
 
-En Mode - Interface eligiremos la opción CMSIS_V2 para poder utilizar la versión 2 del estándar de programación CMSIS.
+En `Mode - Interface` eligiremos la opción **CMSIS_V2** para poder utilizar la versión 2 del estándar de programación CMSIS.
 
 ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.008.png)
 
@@ -78,66 +78,61 @@ En la pestaña _Tasks and Queues_ podemos indicar la creación de una nueva tare
 - el identificador utilizado en el programa para referirnos a esta tarea, por ejemplo tareaPantalla
 - se ejecuta con una prioridad normal
 - se le asigna una pila y se elige su tamaño, por ejemplo de 4096 words (cada word corresponde a 32 bits)
-- esta tarea ejecuta el código de la función fTareaPantalla()
+- esta tarea ejecuta el código de la función **fTareaPantalla()**
 - seguidamente se indican opciones para la generación automática de código, entre las que se indica que se crea una estructura de datos para el manejo de esta tarera, que se reserva dinámicamente.
 
 ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.009.png)
 
 Para generar automáticamente el código de inicialización del microcontrolador y del sistema operativo hay que pulsar el icono y para compilar la aplicación hay que pulsar en el icono en forma de martillo ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.010.png) de la barra de iconos superior o bien hay que elegir la opción de menú ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.011.png)_Project - Build project_.
 
-Se genera el archivo Core/Startup/startup_stm32f429zitx.s escrito en el lenguaje ensamblador del micocontrolador, donde se realizan llamadas a funciones de inicialización del micro y que llama a la función main() de nuestro programa:
+Se genera el archivo `Core/Startup/startup_stm32f429zitx.s` escrito en el lenguaje ensamblador del micocontrolador, donde se realizan llamadas a funciones de inicialización del micro y que llama a la función main() de nuestro programa:
 
-/\* Call the clock system intitialization function.\*/ bl SystemInit
+```c
+/* Call the clock system intitialization function.*/
+bl SystemInit
+/* Call static constructors */
+bl __libc_init_array
+/* Call the application's entry point.*/
+bl main
+```
 
-/\* Call static constructors //
+En el directorio `Drivers/STM32F4xx*HAL_Driver` se encuentra el código de la capa HAL (_Hardware Abstraction Layer_) para microcontroladores de la familia STM32F4. Define estructuras de datos y funciones comunes para varios modelos de microcontroladores de la firma ST Microelectronics.
 
-`  `bl /\_libc_init_array
+En el directorio `Middlewares/ST/STM32_USB_Host_Library` y en el directorio USB_HOST se encuentra código para implantar una interfaz USB Host con dispositivos externos.
 
-/\* Call the application's entry point.\*/
+En el directorio `Middlewares/Third_Party/FreeRTOS` se encuentra el código del sistema operativo en tiempo real [FreeRTOS](https://www.freertos.org/), utilizado para crear varias tareas ó hilos.
 
-`  `bl main
+En `Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2` se encuentran los recursos de programación que implantan el estándar [CMSIS](https://www.arm.com/technologies/cmsis) (_Common Microcontroller Software Interface Standard_) para microcontroladores con núcleo ARM. Utilizando este estándar, múltiples modelos de microcontroladores de diferentes fabricantes utilizando diferentes sistemas operativos se pueden programar de la misma forma, aumentando la portabilidad de las aplicaciones.
 
-En el directorio Drivers/STM32F4xx_HAL_Driver se encuentra el código de la capa HAL (_Hardware_
+En el directorio `Drivers/CMSIS` se definen macros para la utilización de periféricos del microcontrolador según el estándar CMSIS.
 
-_Abstraction Layer_) para microcontroladores de la familia STM32F4. Define estructuras de datos y funciones comunes para varios modelos de microcontroladores de la firma ST Microelectronics.
+En `Core/Inc/FreeRTOSConfig.h` se definen macros con ciertos valores para activar o desactivar determinadas funcionalidades del sistema operativo FreeRTOS y para asignar recursos para ese sistema.
 
-En el directorio Middlewares/ST/STM32_USB_Host_Library y en el directorio USB_HOST se encuentra código para implantar una interfaz USB Host con dispositivos externos.
+En `Core/Src/freertos.c` existen funciones que se ejecutan cuando surge algún problema en la ejecución del sistema operativo FreeRTOS y donde el programador puede añadir código en zonas delimitadas con macros, por ejemplo:
 
-En el directorio Middlewares/Third_Party/FreeRTOS se encuentra el código del sistema operativo en tiempo real [FreeRTOS](https://www.freertos.org/), utilizado para crear varias tareas ó hilos.
-
-En Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 se encuentran los recursos de programación que implantan el estándar [CMSIS](https://www.arm.com/technologies/cmsis) (_Common Microcontroller Software Interface Standard_) para microcontroladores con núcleo ARM. Utilizando este estándar, múltiples modelos de microcontroladores de diferentes fabricantes utilizando diferentes sistemas operativos se pueden programar de la misma forma, aumentando la portabilidad de las aplicaciones.
-
-En el directorio Drivers/CMSIS se definen macros para la utilización de periféricos del microcontrolador según el estándar CMSIS.
-
-En Core/Inc/FreeRTOSConfig.h se definen macros con ciertos valores para activar o desactivar
-
-determinadas funcionalidades del sistema operativo FreeRTOS y para asignar recursos para ese sistema.
-
-En Core/Src/freertos.c existen funciones que se ejecutan cuando surge algún problema en la ejecución del sistema operativo FreeRTOS y donde el programador puede añadir código en zonas delimitadas con macros, por ejemplo:
-
-/\* USER CODE BEGIN 4 //
-
-/\_weak void vApplicationStackOverflowHook(xTaskHandle xTask, signed char \*pcTaskName) {
-
-/\* Run time stack overflow checking is performed if
-
-`   `configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is called if a stack overflow is detected. //
-
+```c
+/* USER CODE BEGIN 4 */
+__weak void vApplicationStackOverflowHook(xTaskHandle xTask, signed char *pcTaskName)
+{
+/* Run time stack overflow checking is performed if
+configCHECK_FOR_STACK_OVERFLOW is defined to 1 or 2. This hook function is
+called if a stack overflow is detected. */
 }
+/* USER CODE END 4 */
+```
 
-/\* USER CODE END 4 //
+Cuando se compila un proyecto, se generan automáticamente los archivos Core/Inc/main.h y Core/Src/main.c para el programa principal donde aparecen secciones enmarcadas entre comentarios como
 
-Cuando se compila un proyecto, se generan automáticamente los archivos Core/Inc/main.h y Core/Src/main.c para el programa principal donde aparecen secciones enmarcadas entre comentarios
-
-como
-
-/\* USER CODE BEGIN Includes // /\* USER CODE END Includes //
+```c
+/* USER CODE BEGIN Includes */
+/* USER CODE END Includes */
+```
 
 para que el programador añada código sólamente en esas secciones y con el cometido indicado en los comentarios. Cuando se realiza alguna modificación en la configuración del proyecto, estos archivos se generan de nuevo de forma automática y en ese proceso sólo se mantiene el código incluido entre esos comentarios.
 
-En el directorio Core el programador puede añadir archivos de declaraciones con extensión .h en Core/Inc y archivos fuente con extensión .c en Core/Src.
+En el directorio `Core` el programador puede añadir archivos de declaraciones con extensión **.h** en `Core/Inc` y archivos fuente con extensión **.c** en `Core/Src`.
 
-Junto a este enunciado se proporciona un archivo ficheros.zip con los siguientes archivos que hay añadir
+Junto a este enunciado se proporciona un archivo **ficheros.zip** con los siguientes archivos que hay añadir
 
 al proyecto:
 
@@ -145,21 +140,19 @@ al proyecto:
 
 su interfaz táctil.
 
-- stm32f429i_discovery.h y stm32f429i_discovery.c: macros, enumerados y funciones para de varios recursos en la placa: LEDs, pulsadores, EEPROM. También macros para indicar en qué pines del microcontrolador se encuentran las líneas de canales de comunicaciones I2C, SPI, con la pantalla LCD y con el giróscopo.
-- stm32f429i_discovery_io.h y stm32f429i_discovery_io.c: tipos de datos, enumerados y funciones para E/S digital.
-- stm32f429i_discovery_lcd.h y stm32f429i_discovery_lcd.c: tipos de datos, enumerados y funciones para manejo de la pantalla.
-- stm32f429i_discovery_ts.h y stm32f429i_discovery_ts.c: tipos de datos, enumerados y funciones para manejo de la interfaz táctil resistiva de la pantalla.
-- stm32f429i_discovery_sdram.h y stm32f429i_discovery_sdram.c: tipos de datos, enumerados y funciones para manejo de un chip de memoria RAM estática externo presente en la placa.
-- ili9341.h e ili9341.c: para la comunicación con el chip ILI9341[ que controla](https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf) la pantalla de cristal líquido presente en la placa.
-- stmpe811.h y stmpe811.c: recursos para la comunicación con el chip ST [STMPE811 que ](https://www.st.com/en/touch-and-display-controllers/stmpe812.html)es el controlador
+- **stm32f429i_discovery.h** y **stm32f429i_discovery.c**: macros, enumerados y funciones para de varios recursos en la placa: LEDs, pulsadores, EEPROM. También macros para indicar en qué pines del microcontrolador se encuentran las líneas de canales de comunicaciones I2C, SPI, con la pantalla LCD y con el giróscopo.
+- **stm32f429i_discovery_io.h** y **stm32f429i_discovery_io.c**: tipos de datos, enumerados y funciones para E/S digital.
+- **stm32f429i_discovery_lcd.h** y **stm32f429i_discovery_lcd.c**: tipos de datos, enumerados y funciones para manejo de la pantalla.
+- **stm32f429i_discovery_ts.h** y **stm32f429i_discovery_ts.c**: tipos de datos, enumerados y funciones para manejo de la interfaz táctil resistiva de la pantalla.
+- **stm32f429i_discovery_sdram.h** y **stm32f429i_discovery_sdram.c**: tipos de datos, enumerados y funciones para manejo de un chip de memoria RAM estática externo presente en la placa.
+- **ili9341.h** e **ili9341.c**: para la comunicación con el chip ILI9341[ que controla](https://cdn-shop.adafruit.com/datasheets/ILI9341.pdf) la pantalla de cristal líquido presente en la placa.
+- **stmpe811.h** y **stmpe811.c**: recursos para la comunicación con el chip ST [STMPE811 que ](https://www.st.com/en/touch-and-display-controllers/stmpe812.html)es el controlador de la interfaz táctil de la pantalla.
 
-  de la interfaz táctil de la pantalla.
-
-- juegoAlphaxx.h y juegoAlphaxx.c, con xx = 13, 15, 17, 19 y 22: definición de juegos de caracteres para mostrar texto en la pantalla, desde caracteres de 13 puntos de alto hasta 22 puntos de alto. Para cada juego se define una matriz de bytes para indicar cómo se visualizan los caracteres de la tabla ASCII desde el código 32 hasta el 126 y caracteres adicionales, como vocales acentuadas y eñes. En los bytes que describen cada caracter se indica la componente Alpha de cada punto, para poder visualizar caracteres en cualquier color y con suavizado de bordes.
+- **juegoAlphaxx.h** y **juegoAlphaxx.c**, con xx = 13, 15, 17, 19 y 22: definición de juegos de caracteres para mostrar texto en la pantalla, desde caracteres de 13 puntos de alto hasta 22 puntos de alto. Para cada juego se define una matriz de bytes para indicar cómo se visualizan los caracteres de la tabla ASCII desde el código 32 hasta el 126 y caracteres adicionales, como vocales acentuadas y eñes. En los bytes que describen cada caracter se indica la componente Alpha de cada punto, para poder visualizar caracteres en cualquier color y con suavizado de bordes.
 
 ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.012.png) ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.013.png)
 
-- pantalla.h y pantalla.c: archivos donde se dispone de funciones y estructuras de datos para la inicialización de la pantalla LCD, manejo de la interfaz táctil y dibujado de texto, líneas, círculos, rectángulos e imágenes. En estos archivos programaremos más funcionalidades en esta práctica. En las funciones proporcionadas se pueden dibujar los puntos de imágenes, texto, etc aplicando un factor de transparencia adicional con valor de 0 a 100.
+- **pantalla.h** y **pantalla.c**: archivos donde se dispone de funciones y estructuras de datos para la inicialización de la pantalla LCD, manejo de la interfaz táctil y dibujado de texto, líneas, círculos, rectángulos e imágenes. En estos archivos programaremos más funcionalidades en esta práctica. En las funciones proporcionadas se pueden dibujar los puntos de imágenes, texto, etc aplicando un factor de transparencia adicional con valor de 0 a 100.
 
 ![](resources/Aspose.Words.ba47ec15-f055-4c45-a108-4ca230acc0c5.014.png)
 
@@ -220,7 +213,7 @@ Ejemplo video
 
 #### 🔵 Forma 2:
 
-1. hacemos los pasos 1, 2, 3 y 4 de la `forma1`
+1. Hacemos los pasos 1, 2, 3 y 4 de la `🔵 Forma 1`
 2. Copiar y pegar las siguientes lineas en el primer cuadro blanco
 
 ```python
